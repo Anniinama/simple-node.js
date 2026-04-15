@@ -1,15 +1,10 @@
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
+const exphbs = require('express-handlebars');
 
 //how to import env
 require('dotenv').config();
-
-//app
-const app = express();
-
-app.use(express.json());
-app.use(express.urlencoded({extended: false}));
 
 //data
 let lego_flowers = [
@@ -84,6 +79,31 @@ let lego_flowers = [
     inStock: true
     }
 ]
+//app
+const app = express();
+
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
+
+app.engine('handlebars', exphbs.engine({
+    defaultLAyout: 'main'
+}));
+
+//main view
+app.set('view engine', 'handlebars');
+
+//folder for css & imgs
+app.use(express.static('public'));
+
+//homeroute
+app.get('/', (req,res) => {
+    res.render('index', {
+        title: "Lego Flowers",
+        products: lego_flowers,
+        length: lego_flowers.length
+    });
+});
+
 
 //getting all legoflowers from array
 app.get('/api/lego_flowers', (req,res) => {
