@@ -148,10 +148,10 @@ app.delete('/api/lego_flowers/:name', (req,res) =>{
     //getting the name of the deleted object
     const toBeDeleted = String(req.params.name);
 
-    const lego = lego_flowers.find(lego => lego.name == toBeDeleted);
+    const lego = lego_flowers.find(lego => lego.name === toBeDeleted);
 
     if(lego){
-        lego_flowers = lego_flowers.filter(lego => lego.name === toBeDeleted);
+        lego_flowers = lego_flowers.filter(lego => lego.name !== toBeDeleted);
         res.status(200).json({
             name: toBeDeleted,
             msg: 'Deleted successfully'
