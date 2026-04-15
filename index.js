@@ -94,6 +94,23 @@ app.get('/api/lego_flowers', (req,res) => {
     })
 });
 
+//getting one legoflower by the name from array
+app.get('/api/lego_flowers/name/:name', (req,res) => {
+    const name = String(req.params.name);
+
+    const flower_name = lego_flowers.find(flower_name => flower_name.name === name);
+    res.json(flower_name);
+});
+
+//getting all lego flowers which are in stock
+app.get('/api/lego_flowers/inStock/:inStock', (req,res) => {
+
+    const availability = req.params.inStock === 'true';
+    const result = lego_flowers.filter(item => item.inStock === availability);
+
+    res.json(result);
+
+});
 
 //port
 const PORT = process.env.PORT;
