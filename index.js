@@ -112,6 +112,56 @@ app.get('/api/lego_flowers/inStock/:inStock', (req,res) => {
 
 });
 
+//deleting from array (db)
+app.delete('/api/lego_flowers/:name', (req,res) =>{
+
+    //getting the name of the deleted object
+    const toBeDeleted = String(req.params.name);
+
+    const lego = lego_flowers.find(lego => lego.name == toBeDeleted);
+
+    if(lego){
+        lego_flowers = lego_flowers.filter(lego => lego.name === toBeDeleted);
+        res.status(200).json({
+            name: toBeDeleted,
+            msg: 'Deleted successfully'
+        })
+    }
+    else{
+        res.status(404).json({
+            msg: 'Something went wrong'
+        })
+    }
+});
+
+//adding to array (db)
+app.post('/api/lego_flowers/', (req,res) => {
+
+    if(req.body.name && req.body.price && req.body.category && req.body.pieces && req.body.colorOfTheFlower && req.body.inStock){
+        const newLegoFlower = {
+            name: req.body.name,
+            pieces: req.body.pieces,
+            price: req.body.price,
+            category: req.body.category,
+            colorOfTheFlower: req.body.colorOfTheFlower,
+            inStock: req.body.inStock
+        }
+
+        lego_flowers.push(newLegoFlower);
+
+        res.status(200).json({
+            msg: 'New Lego Flower added successfully',
+            newLegoFlower
+        })
+        res.send(lego_flowers);
+    }else{
+        res.status(400).json({
+            msg: 'Something went wrong'
+        })
+    }
+})
+
+
 //port
 const PORT = process.env.PORT;
 app.listen(PORT, () => console.log(`Server running on ${PORT}`));
