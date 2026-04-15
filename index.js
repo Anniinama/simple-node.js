@@ -162,6 +162,44 @@ app.post('/api/lego_flowers/', (req,res) => {
 })
 
 
+//updating a object in array (db)
+app.patch('/api/lego_flowers/:name', (req,res) => {
+    
+    const toBeUpdated = String(req.params.name);
+    const lego = lego_flowers.find(lego => lego.name == toBeUpdated);
+
+    if (lego){
+        lego_flowers.forEach(lego => {
+            if (lego.name = toBeUpdated){
+                lego.pieces = req.body.pieces
+                lego.pieces = req.body.pieces,
+                lego.price = req.body.price,
+                lego.category = req.body.category,
+                lego.colorOfTheFlower = req.body.colorOfTheFlower,
+                lego.inStock = req.body.inStock
+            }
+        });
+
+        const updatedLego = {
+            name: req.body.name,
+            pieces: req.body.pieces,
+            price: req.body.price,
+            category: req.body.category,
+            colorOfTheFlower: req.body.colorOfTheFlower,
+            inStock: req.body.inStock
+        }
+
+        res.status(200).json(updatedLego);
+    }
+    else{
+        res.status(400).json({
+        msg: 'Something went wrong'
+        })
+    }
+    res.json(lego_flowers);
+
+});
+
 //port
 const PORT = process.env.PORT;
 app.listen(PORT, () => console.log(`Server running on ${PORT}`));
