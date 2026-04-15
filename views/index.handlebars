@@ -1,24 +1,25 @@
 <h1> {{title}}</h1>
+<div class="card-container">
+    {{#each products}}
+    <div class="card">
 
-{{#each products}}
-<div class="card">
+        <p>Product name: {{this.name}}</p>
+        <p>Included pieces: {{this.pieces}}</p>
+        <p>Price: {{this.price}}</p>
+        <p>Product category: {{this.category}}</p>
+        <p>Main color of the product: {{this.colorOfTheFlower}}</p>
+        <p>Availability in stock:   
+            {{#if this.inStock}}
+            Yes
+            {{else}}
+            No
+            {{/if}}
+        </p>
+        <img src="{{img}}" alt="">
 
-    <p>Product name: {{this.name}}</p>
-    <p>Included pieces: {{this.pieces}}</p>
-    <p>Price: {{this.price}}</p>
-    <p>Product category: {{this.category}}</p>
-    <p>Main color of the product: {{this.colorOfTheFlower}}</p>
-    <p>Availability in stock:   
-        {{#if this.inStock}}
-        Yes
-        {{else}}
-        No
-        {{/if}}
-    </p>
-
+    </div>
+    {{/each}}
 </div>
-{{/each}}
-
 
 <p>Total products:
 {{this.length}}</p>

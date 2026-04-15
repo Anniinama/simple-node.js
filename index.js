@@ -13,70 +13,80 @@ let lego_flowers = [
     price: 69.95,
     category: "Bouquet",
     colorOfTheFlower: "Yellow",
-    inStock: true
+    inStock: true,
+    img: 'sunflowers.png'
     },
     {name: "Magnolia Branches",
     pieces: 435,
     price: 59.95,
     category: "Branches",
     colorOfTheFlower: "Multicolor",
-    inStock: true
+    inStock: true,
+    img: 'magnolia.png'
     },
     {name: "Tulip Bouquet",
     pieces: 576,
     price: 69.95,
     category: "Bouquet",
     colorOfTheFlower: "Multicolor",
-    inStock: false
+    inStock: false,
+    img: 'tulip.png'
     },
     {name: "Bouquet of Pink Roses",
     pieces: 789,
     price: 69.95,
     category: "Bouquet",
     colorOfTheFlower: "Pink",
-    inStock: true
+    inStock: true,
+    img: 'pinkroses.png'
     },
-    {name: "Orchid",
+    {name: "Peace Lily",
     pieces: 608,
     price: 59.95,
     category: "Potted plant",
     colorOfTheFlower: "White",
-    inStock: true
+    inStock: true,
+    img: 'lily.png'
     },
     {name: "Wildflower Bouquet",
     pieces: 939,
     price: 74.95,
     category: "Bouquet",
     colorOfTheFlower: "Multicolor",
-    inStock: true
+    inStock: true,
+    img: 'wildflower.png'
     },
     {name: "Cherry Blossoms",
     pieces: 430,
     price: 17.95,
     category: "Branches",
     colorOfTheFlower: "Multicolor",
-    inStock: true
+    inStock: true,
+    img: 'cherryblossom.png'
     },
     {name: "Daisies",
     pieces: 133,
     price: 17.95,
     category: "Bouquet",
     colorOfTheFlower: "White",
-    inStock: false
+    inStock: false,
+    img: 'daisy.png'
     },
     {name: "Pretty Pink Flower Bouquet",
     pieces: 749,
     price: 72.95,
     category: "Bouquet",
     colorOfTheFlower: "Multicolor",
-    inStock: true
+    inStock: true,
+    img: 'pinkflowers.png'
     },
     {name: "Bouquet of Roses",
     pieces: 822,
     price: 72.95,
     category: "Bouquet",
     colorOfTheFlower: "Red",
-    inStock: true
+    inStock: true,
+    img: 'redroses.png'
     }
 ]
 //app
